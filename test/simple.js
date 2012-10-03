@@ -55,7 +55,6 @@ test("reduce reduces with first value if no initialValue", function (t) {
     t.end()
 })
 
-
 function createItem() {
     return {
         a: "a1"
