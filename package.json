@@ -1,0 +1,33 @@
+{
+  "name": "reduce",
+  "version": "0.1.0",
+  "description": "A better [].reduce",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Raynos/reduce.git",
+  "main": "index",
+  "homepage": "https://github.com/Raynos/reduce",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Raynos/reduce/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "~0.3.1",
+    "sinon": "~1.4.2"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/reduce/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "test": "tap --stderr --tap ./test"
+  }
+}
