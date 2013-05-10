@@ -20,8 +20,7 @@
     "object-keys": "~0.1.8"
   },
   "devDependencies": {
-    "tape": "~1.0.2",
-    "sinon": "~1.4.2"
+    "tape": "~1.0.2"
   },
   "licenses": [
     {

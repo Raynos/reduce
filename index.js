@@ -24,3 +24,4 @@ function reduce(list, iterator, context, accumulator) {
 
     return accumulator
 }
+

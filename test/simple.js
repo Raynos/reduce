@@ -1,19 +1,33 @@
 var test = require("tape")
-    , sinon = require("sinon")
     , reduce = require("..")
 
 test("reduce calls each iterator", function (t) {
     var item = createItem()
-        , iterator = sinon.spy(function (acc, v) {
-            acc.key += v
+        , timesCalled = 0
+        , accumulator = { key: '' }
+        , expectedKeys = ['a', 'b', 'c']
+        , expectedValues = ['a1', 'b1', 'c1']
+        , expectedAccumulatorKeys = ['', 'a1', 'a1b1', 'a1b1c1']
+        , iterator = function (acc, value, key, list) {
+            var expectedKey = expectedKeys[timesCalled]
+                , expectedValue = expectedValues[timesCalled]
+                , expectedAccumulatorKey = expectedAccumulatorKeys[timesCalled]
+
+            t.equal(value, expectedValue, 'value ' + value + ' does not match ' + expectedValue)
+            t.equal(key, expectedKey, 'key ' + key + ' does not match ' + expectedKey)
+            t.equal(list, item, 'list arg is not correct')
+            t.equal(acc.key, expectedAccumulatorKey, 'accumulator key ' + acc.key + ' does not match ' + expectedAccumulatorKey)
+
+            timesCalled += 1
+            acc.key += value
             return acc
-        })
+        }
 
-    var result = reduce(item, iterator, {
-        key: ""
-    })
+    var result = reduce(item, iterator, accumulator)
 
-    t.ok(iterator.calledThrice, "iterator was not called thrice")
+    t.equal(timesCalled, 3, "iterator was not called thrice")
+    t.deepEqual(result, { key: 'a1b1c1' }, 'result is incorrect');
+return t.end();
     t.deepEqual(iterator.args[0], [{
         key: "a1b1c1"
     }, "a1", "a", item], "iterator called with wrong arguments")
@@ -32,21 +46,21 @@ test("reduce calls each iterator", function (t) {
 
 test("reduce calls iterator with correct this value", function (t) {
     var item = createItem()
-        , iterator = sinon.spy()
         , thisValue = {}
+        , iterator = function () {
+              t.equal(this, thisValue, 'this value is incorrect');
+          }
 
     reduce(item, iterator, thisValue, {})
-
-    t.ok(iterator.calledOn(thisValue), "this value is incorrect")
 
     t.end()
 })
 
 test("reduce reduces with first value if no initialValue", function (t) {
     var list = [1, 2]
-        , iterator = sinon.spy(function (sum, v) {
+        , iterator = function (sum, v) {
             return sum + v
-        })
+        }
 
     var result = reduce(list, iterator)
 
