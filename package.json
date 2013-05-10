@@ -20,7 +20,7 @@
     "object-keys": "~0.1.8"
   },
   "devDependencies": {
-    "tap": "~0.4.1",
+    "tape": "~1.0.2",
     "sinon": "~1.4.2"
   },
   "licenses": [
@@ -47,7 +47,7 @@
     ]
   },
   "scripts": {
-    "test": "tap --stderr --tap ./test"
+    "test": "node test/simple.js"
   }
 }
 
