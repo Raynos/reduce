@@ -1,6 +1,6 @@
 {
   "name": "reduce",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A better [].reduce",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
@@ -49,4 +49,3 @@
     "test": "node test/simple.js"
   }
 }
-
