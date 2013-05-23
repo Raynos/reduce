@@ -1,6 +1,5 @@
 # reduce [![build status][1]][2]
 
-g
 ## Example
 
 Like `Array.prototype.reduce` but works on Object and accepts optional
