@@ -1,6 +1,6 @@
 {
   "name": "reduce",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A better [].reduce",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
@@ -16,10 +16,11 @@
     "url": "https://github.com/Raynos/reduce/issues",
     "email": "raynos2@gmail.com"
   },
-  "dependencies": {},
+  "dependencies": {
+    "object-keys": "~0.2.0"
+  },
   "devDependencies": {
-    "tap": "~0.3.1",
-    "sinon": "~1.4.2"
+    "tape": "~1.0.2"
   },
   "licenses": [
     {
@@ -27,7 +28,25 @@
       "url": "http://github.com/Raynos/reduce/raw/master/LICENSE"
     }
   ],
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "iexplore/6.0..latest",
+      "firefox/3.0..6.0",
+      "firefox/15.0..latest",
+      "firefox/nightly",
+      "chrome/4.0..10.0",
+      "chrome/20.0..latest",
+      "chrome/canary",
+      "opera/10.0..latest",
+      "opera/next",
+      "safari/4.0..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest"
+    ]
+  },
   "scripts": {
-    "test": "tap --stderr --tap ./test"
+    "test": "node test/simple.js"
   }
 }
+

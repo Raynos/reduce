@@ -1,7 +1,9 @@
 module.exports = reduce
 
+var objectKeys = require('object-keys');
+
 function reduce(list, iterator, context, accumulator) {
-    var keys = Object.keys(list)
+    var keys = objectKeys(list)
         , i = 0
 
     if (arguments.length === 2) {
@@ -22,3 +24,4 @@ function reduce(list, iterator, context, accumulator) {
 
     return accumulator
 }
+

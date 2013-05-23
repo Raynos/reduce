@@ -1,5 +1,7 @@
 # reduce [![build status][1]][2]
 
+[![browser support][3]][4]
+
 ## Example
 
 Like `Array.prototype.reduce` but works on Object and accepts optional
@@ -35,3 +37,6 @@ reduce({
 
   [1]: https://secure.travis-ci.org/Raynos/reduce.png
   [2]: http://travis-ci.org/Raynos/reduce
+  [3]: https://ci.testling.com/Raynos/reduce.png
+  [4]: https://ci.testling.com/Raynos/reduce
+
