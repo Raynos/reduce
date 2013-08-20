@@ -79,6 +79,12 @@ test("reduce throws a TypeError when an invalid iterator is provided", function 
     t.end()
 })
 
+test("reduce has a length of 2, mimicking spec", function (t) {
+    t.equal(reduce.length, 2, 'reduce has a length of 2')
+
+    t.end()
+})
+
 function createItem() {
     return {
         a: "a1"
