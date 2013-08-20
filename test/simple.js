@@ -8,10 +8,14 @@ test("reduce calls each iterator", function (t) {
         , expectedKeys = ['a', 'b', 'c']
         , expectedValues = ['a1', 'b1', 'c1']
         , expectedAccumulatorKeys = ['', 'a1', 'a1b1', 'a1b1c1']
+        , calledArguments = []
+        , slice = Array.prototype.slice
         , iterator = function (acc, value, key, list) {
             var expectedKey = expectedKeys[timesCalled]
                 , expectedValue = expectedValues[timesCalled]
                 , expectedAccumulatorKey = expectedAccumulatorKeys[timesCalled]
+
+            calledArguments.push(slice.apply(arguments))
 
             t.equal(value, expectedValue, 'value ' + value + ' does not match ' + expectedValue)
             t.equal(key, expectedKey, 'key ' + key + ' does not match ' + expectedKey)
@@ -27,14 +31,14 @@ test("reduce calls each iterator", function (t) {
 
     t.equal(timesCalled, 3, "iterator was not called thrice")
     t.deepEqual(result, { key: 'a1b1c1' }, 'result is incorrect');
-return t.end();
-    t.deepEqual(iterator.args[0], [{
+
+    t.deepEqual(calledArguments[0], [{
         key: "a1b1c1"
     }, "a1", "a", item], "iterator called with wrong arguments")
-    t.deepEqual(iterator.args[1], [{
+    t.deepEqual(calledArguments[1], [{
         key: "a1b1c1"
     }, "b1", "b", item], "iterator called with wrong arguments")
-    t.deepEqual(iterator.args[2], [{
+    t.deepEqual(calledArguments[2], [{
         key: "a1b1c1"
     }, "c1", "c", item], "iterator called with wrong arguments")
     t.deepEqual(result, {
