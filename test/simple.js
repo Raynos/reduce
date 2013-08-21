@@ -73,6 +73,18 @@ test("reduce reduces with first value if no initialValue", function (t) {
     t.end()
 })
 
+test("reduce throws a TypeError when an invalid iterator is provided", function (t) {
+    t.throws(function () { reduce([1, 2]); }, TypeError, 'requires a function')
+
+    t.end()
+})
+
+test("reduce has a length of 2, mimicking spec", function (t) {
+    t.equal(reduce.length, 2, 'reduce has a length of 2')
+
+    t.end()
+})
+
 function createItem() {
     return {
         a: "a1"
