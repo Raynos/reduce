@@ -20,7 +20,8 @@
     "object-keys": "~0.5.1"
   },
   "devDependencies": {
-    "tape": "~2.10.2"
+    "tape": "~2.10.2",
+    "covert": "~0.3.1"
   },
   "licenses": [
     {
@@ -46,6 +47,8 @@
     ]
   },
   "scripts": {
-    "test": "node test/simple.js"
+    "test": "node test/simple.js",
+    "coverage": "covert test/simple.js",
+    "coverage-quiet": "covert --quiet test/simple.js"
   }
 }
