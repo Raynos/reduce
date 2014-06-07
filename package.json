@@ -20,7 +20,7 @@
     "object-keys": "~0.5.1"
   },
   "devDependencies": {
-    "tape": "~2.12.3",
+    "tape": "~2.13.2",
     "covert": "~0.4.0"
   },
   "licenses": [
