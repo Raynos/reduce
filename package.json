@@ -1,6 +1,6 @@
 {
   "name": "reduce",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "A better [].reduce",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
