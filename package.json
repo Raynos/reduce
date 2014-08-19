@@ -48,7 +48,7 @@
     ]
   },
   "scripts": {
-    "test": "node test/simple.js && npm run coverage-quiet",
+    "test": "npm run lint && node test/simple.js && npm run coverage-quiet",
     "coverage": "covert test/simple.js",
     "coverage-quiet": "covert --quiet test/simple.js",
     "lint": "jscs *.js test/*.js"
