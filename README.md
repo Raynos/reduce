@@ -35,7 +35,7 @@ reduce({
 
 ## MIT Licenced
 
-  [1]: https://secure.travis-ci.org/Raynos/reduce.png
+  [1]: https://secure.travis-ci.org/Raynos/reduce.svg
   [2]: http://travis-ci.org/Raynos/reduce
   [3]: https://ci.testling.com/Raynos/reduce.png
   [4]: https://ci.testling.com/Raynos/reduce
