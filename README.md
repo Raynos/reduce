@@ -1,6 +1,6 @@
 # reduce [![build status][travis-svg]][travis-url]
 
-[![browser support][3]][4]
+[![browser support][testling-png]][testling-url]
 
 ## Example
 
@@ -37,6 +37,6 @@ reduce({
 
   [travis-svg]: https://secure.travis-ci.org/Raynos/reduce.svg
   [travis-url]: http://travis-ci.org/Raynos/reduce
-  [3]: https://ci.testling.com/Raynos/reduce.png
-  [4]: https://ci.testling.com/Raynos/reduce
+  [testling-png]: https://ci.testling.com/Raynos/reduce.png
+  [testling-url]: https://ci.testling.com/Raynos/reduce
 
