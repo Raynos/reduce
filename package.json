@@ -17,12 +17,12 @@
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
-    "object-keys": "~1.0.1"
+    "object-keys": "~1.0.3"
   },
   "devDependencies": {
-    "tape": "~3.0.0",
+    "tape": "~3.5.0",
     "covert": "~1.0.1",
-    "jscs": "~1.6.2"
+    "jscs": "~1.11.0"
   },
   "licenses": [
     {
