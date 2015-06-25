@@ -1,5 +1,5 @@
 var test = require("tape")
-    , reduce = require("..")
+    , reduce = require("..");
 
 test("reduce calls each iterator", function (t) {
     var item = createItem()
@@ -13,82 +13,82 @@ test("reduce calls each iterator", function (t) {
         , iterator = function (acc, value, key, list) {
             var expectedKey = expectedKeys[timesCalled]
                 , expectedValue = expectedValues[timesCalled]
-                , expectedAccumulatorKey = expectedAccumulatorKeys[timesCalled]
+                , expectedAccumulatorKey = expectedAccumulatorKeys[timesCalled];
 
-            calledArguments.push(slice.apply(arguments))
+            calledArguments.push(slice.apply(arguments));
 
-            t.equal(value, expectedValue, 'value ' + value + ' does not match ' + expectedValue)
-            t.equal(key, expectedKey, 'key ' + key + ' does not match ' + expectedKey)
-            t.equal(list, item, 'list arg is not correct')
-            t.equal(acc.key, expectedAccumulatorKey, 'accumulator key ' + acc.key + ' does not match ' + expectedAccumulatorKey)
+            t.equal(value, expectedValue, 'value ' + value + ' does not match ' + expectedValue);
+            t.equal(key, expectedKey, 'key ' + key + ' does not match ' + expectedKey);
+            t.equal(list, item, 'list arg is not correct');
+            t.equal(acc.key, expectedAccumulatorKey, 'accumulator key ' + acc.key + ' does not match ' + expectedAccumulatorKey);
 
-            timesCalled += 1
-            acc.key += value
-            return acc
-        }
+            timesCalled += 1;
+            acc.key += value;
+            return acc;
+        };
 
-    var result = reduce(item, iterator, accumulator)
+    var result = reduce(item, iterator, accumulator);
 
-    t.equal(timesCalled, 3, "iterator was not called thrice")
+    t.equal(timesCalled, 3, "iterator was not called thrice");
     t.deepEqual(result, { key: 'a1b1c1' }, 'result is incorrect');
 
     t.deepEqual(calledArguments[0], [{
         key: "a1b1c1"
-    }, "a1", "a", item], "iterator called with wrong arguments")
+    }, "a1", "a", item], "iterator called with wrong arguments");
     t.deepEqual(calledArguments[1], [{
         key: "a1b1c1"
-    }, "b1", "b", item], "iterator called with wrong arguments")
+    }, "b1", "b", item], "iterator called with wrong arguments");
     t.deepEqual(calledArguments[2], [{
         key: "a1b1c1"
-    }, "c1", "c", item], "iterator called with wrong arguments")
+    }, "c1", "c", item], "iterator called with wrong arguments");
     t.deepEqual(result, {
         key: "a1b1c1"
-    })
+    });
 
-    t.end()
-})
+    t.end();
+});
 
 test("reduce calls iterator with correct this value", function (t) {
     var item = createItem()
         , thisValue = {}
         , iterator = function () {
-              t.equal(this, thisValue, 'this value is incorrect');
-          }
+              t.equal(this, thisValue, 'this value is incorrect');;
+          };
 
-    reduce(item, iterator, thisValue, {})
+    reduce(item, iterator, thisValue, {});
 
-    t.end()
-})
+    t.end();
+});
 
 test("reduce reduces with first value if no initialValue", function (t) {
     var list = [1, 2]
         , iterator = function (sum, v) {
-            return sum + v
-        }
+            return sum + v;
+        };
 
-    var result = reduce(list, iterator)
+    var result = reduce(list, iterator);
 
-    t.equal(result, 3, "result is incorrect")
+    t.equal(result, 3, "result is incorrect");
 
-    t.end()
-})
+    t.end();
+});
 
 test("reduce throws a TypeError when an invalid iterator is provided", function (t) {
-    t.throws(function () { reduce([1, 2]); }, TypeError, 'requires a function')
+    t.throws(function () { reduce([1, 2]); }, TypeError, 'requires a function');
 
-    t.end()
-})
+    t.end();
+});
 
 test("reduce has a length of 2, mimicking spec", function (t) {
-    t.equal(reduce.length, 2, 'reduce has a length of 2')
+    t.equal(reduce.length, 2, 'reduce has a length of 2');
 
-    t.end()
-})
+    t.end();
+});
 
 function createItem() {
     return {
         a: "a1"
         , b: "b1"
         , c: "c1"
-    }
+    };
 }
