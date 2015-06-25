@@ -1,31 +1,31 @@
-var test = require("tape")
-    , reduce = require("..");
+var test = require("tape");
+var reduce = require("..");
 
 test("reduce calls each iterator", function (t) {
-    var item = createItem()
-        , timesCalled = 0
-        , accumulator = { key: '' }
-        , expectedKeys = ['a', 'b', 'c']
-        , expectedValues = ['a1', 'b1', 'c1']
-        , expectedAccumulatorKeys = ['', 'a1', 'a1b1', 'a1b1c1']
-        , calledArguments = []
-        , slice = Array.prototype.slice
-        , iterator = function (acc, value, key, list) {
-            var expectedKey = expectedKeys[timesCalled]
-                , expectedValue = expectedValues[timesCalled]
-                , expectedAccumulatorKey = expectedAccumulatorKeys[timesCalled];
+    var item = createItem();
+    var timesCalled = 0;
+    var accumulator = { key: '' };
+    var expectedKeys = ['a', 'b', 'c'];
+    var expectedValues = ['a1', 'b1', 'c1'];
+    var expectedAccumulatorKeys = ['', 'a1', 'a1b1', 'a1b1c1'];
+    var calledArguments = [];
+    var slice = Array.prototype.slice;
+    var iterator = function (acc, value, key, list) {
+        var expectedKey = expectedKeys[timesCalled];
+        var expectedValue = expectedValues[timesCalled];
+        var expectedAccumulatorKey = expectedAccumulatorKeys[timesCalled];
 
-            calledArguments.push(slice.apply(arguments));
+        calledArguments.push(slice.apply(arguments));
 
-            t.equal(value, expectedValue, 'value ' + value + ' does not match ' + expectedValue);
-            t.equal(key, expectedKey, 'key ' + key + ' does not match ' + expectedKey);
-            t.equal(list, item, 'list arg is not correct');
-            t.equal(acc.key, expectedAccumulatorKey, 'accumulator key ' + acc.key + ' does not match ' + expectedAccumulatorKey);
+        t.equal(value, expectedValue, 'value ' + value + ' does not match ' + expectedValue);
+        t.equal(key, expectedKey, 'key ' + key + ' does not match ' + expectedKey);
+        t.equal(list, item, 'list arg is not correct');
+        t.equal(acc.key, expectedAccumulatorKey, 'accumulator key ' + acc.key + ' does not match ' + expectedAccumulatorKey);
 
-            timesCalled += 1;
-            acc.key += value;
-            return acc;
-        };
+        timesCalled += 1;
+        acc.key += value;
+        return acc;
+    };
 
     var result = reduce(item, iterator, accumulator);
 
@@ -49,11 +49,11 @@ test("reduce calls each iterator", function (t) {
 });
 
 test("reduce calls iterator with correct this value", function (t) {
-    var item = createItem()
-        , thisValue = {}
-        , iterator = function () {
-              t.equal(this, thisValue, 'this value is incorrect');;
-          };
+    var item = createItem();
+    var thisValue = {};
+    var iterator = function () {
+        t.equal(this, thisValue, 'this value is incorrect');;
+    };
 
     reduce(item, iterator, thisValue, {});
 
@@ -61,10 +61,10 @@ test("reduce calls iterator with correct this value", function (t) {
 });
 
 test("reduce reduces with first value if no initialValue", function (t) {
-    var list = [1, 2]
-        , iterator = function (sum, v) {
-            return sum + v;
-        };
+    var list = [1, 2];
+    var iterator = function (sum, v) {
+        return sum + v;
+    };
 
     var result = reduce(list, iterator);
 
@@ -87,8 +87,8 @@ test("reduce has a length of 2, mimicking spec", function (t) {
 
 function createItem() {
     return {
-        a: "a1"
-        , b: "b1"
-        , c: "c1"
+        a: "a1",
+        b: "b1",
+        c: "c1"
     };
 }

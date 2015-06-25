@@ -3,10 +3,10 @@ module.exports = reduce;
 var objectKeys = require('object-keys');
 
 function reduce(list, iterator) {
-    var keys = objectKeys(list)
-        , i = 0
-        , accumulator = list[0]
-        , context = this;
+    var keys = objectKeys(list);
+    var i = 0;
+    var accumulator = list[0];
+    var context = this;
 
     if (arguments.length === 2) {
         i = 1;
@@ -18,8 +18,8 @@ function reduce(list, iterator) {
     }
 
     for (var len = keys.length; i < len; i++) {
-        var key = keys[i]
-            , value = list[key];
+        var key = keys[i];
+        var value = list[key];
 
         accumulator = iterator.call(context, accumulator, value, key, list);
     }
