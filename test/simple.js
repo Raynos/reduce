@@ -1,7 +1,7 @@
-var test = require("tape");
-var reduce = require("..");
+var test = require('tape');
+var reduce = require('..');
 
-test("reduce calls each iterator", function (t) {
+test('reduce calls each iterator', function (t) {
     var item = createItem();
     var timesCalled = 0;
     var accumulator = { key: '' };
@@ -29,26 +29,26 @@ test("reduce calls each iterator", function (t) {
 
     var result = reduce(item, iterator, accumulator);
 
-    t.equal(timesCalled, 3, "iterator was not called thrice");
+    t.equal(timesCalled, 3, 'iterator was not called thrice');
     t.deepEqual(result, { key: 'a1b1c1' }, 'result is incorrect');
 
     t.deepEqual(calledArguments[0], [{
-        key: "a1b1c1"
-    }, "a1", "a", item], "iterator called with wrong arguments");
+        key: 'a1b1c1'
+    }, 'a1', 'a', item], 'iterator called with wrong arguments');
     t.deepEqual(calledArguments[1], [{
-        key: "a1b1c1"
-    }, "b1", "b", item], "iterator called with wrong arguments");
+        key: 'a1b1c1'
+    }, 'b1', 'b', item], 'iterator called with wrong arguments');
     t.deepEqual(calledArguments[2], [{
-        key: "a1b1c1"
-    }, "c1", "c", item], "iterator called with wrong arguments");
+        key: 'a1b1c1'
+    }, 'c1', 'c', item], 'iterator called with wrong arguments');
     t.deepEqual(result, {
-        key: "a1b1c1"
+        key: 'a1b1c1'
     });
 
     t.end();
 });
 
-test("reduce calls iterator with correct this value", function (t) {
+test('reduce calls iterator with correct this value', function (t) {
     var item = createItem();
     var thisValue = {};
     var iterator = function () {
@@ -60,7 +60,7 @@ test("reduce calls iterator with correct this value", function (t) {
     t.end();
 });
 
-test("reduce reduces with first value if no initialValue", function (t) {
+test('reduce reduces with first value if no initialValue', function (t) {
     var list = [1, 2];
     var iterator = function (sum, v) {
         return sum + v;
@@ -68,18 +68,18 @@ test("reduce reduces with first value if no initialValue", function (t) {
 
     var result = reduce(list, iterator);
 
-    t.equal(result, 3, "result is incorrect");
+    t.equal(result, 3, 'result is incorrect');
 
     t.end();
 });
 
-test("reduce throws a TypeError when an invalid iterator is provided", function (t) {
+test('reduce throws a TypeError when an invalid iterator is provided', function (t) {
     t.throws(function () { reduce([1, 2]); }, TypeError, 'requires a function');
 
     t.end();
 });
 
-test("reduce has a length of 2, mimicking spec", function (t) {
+test('reduce has a length of 2, mimicking spec', function (t) {
     t.equal(reduce.length, 2, 'reduce has a length of 2');
 
     t.end();
@@ -87,8 +87,8 @@ test("reduce has a length of 2, mimicking spec", function (t) {
 
 function createItem() {
     return {
-        a: "a1",
-        b: "b1",
-        c: "c1"
+        a: 'a1',
+        b: 'b1',
+        c: 'c1'
     };
 }
