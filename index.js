@@ -1,8 +1,8 @@
-module.exports = reduce;
+'use strict';
 
 var objectKeys = require('object-keys');
 
-function reduce(list, iterator) {
+module.exports = function reduce(list, iterator) {
     var keys = objectKeys(list);
     var i = 0;
     var accumulator = list[0];
@@ -25,5 +25,4 @@ function reduce(list, iterator) {
     }
 
     return accumulator;
-}
-
+};

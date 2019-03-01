@@ -1,5 +1,15 @@
+'use strict';
+
 var test = require('tape');
 var reduce = require('..');
+
+var createItem = function createTestItem() {
+    return {
+        a: 'a1',
+        b: 'b1',
+        c: 'c1'
+    };
+};
 
 test('reduce calls each iterator', function (t) {
     var item = createItem();
@@ -52,7 +62,8 @@ test('reduce calls iterator with correct this value', function (t) {
     var item = createItem();
     var thisValue = {};
     var iterator = function () {
-        t.equal(this, thisValue, 'this value is incorrect');;
+        // eslint-disable-next-line no-invalid-this
+        t.equal(this, thisValue, 'this value is incorrect');
     };
 
     reduce(item, iterator, thisValue, {});
@@ -74,7 +85,7 @@ test('reduce reduces with first value if no initialValue', function (t) {
 });
 
 test('reduce throws a TypeError when an invalid iterator is provided', function (t) {
-    t.throws(function () { reduce([1, 2]); }, TypeError, 'requires a function');
+    t['throws'](function () { reduce([1, 2]); }, TypeError, 'requires a function');
 
     t.end();
 });
@@ -84,11 +95,3 @@ test('reduce has a length of 2, mimicking spec', function (t) {
 
     t.end();
 });
-
-function createItem() {
-    return {
-        a: 'a1',
-        b: 'b1',
-        c: 'c1'
-    };
-}

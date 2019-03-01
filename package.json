@@ -20,8 +20,9 @@
     "object-keys": "^1.0.7"
   },
   "devDependencies": {
+    "@ljharb/eslint-config": "^13.1.1",
     "covert": "^1.1.1",
-    "jscs": "^2.11.0",
+    "eslint": "^5.14.1",
     "tape": "^4.10.1"
   },
   "licenses": [
@@ -48,9 +49,10 @@
     ]
   },
   "scripts": {
-    "test": "npm run lint && node test/simple.js && npm run coverage-quiet",
+    "pretest": "npm run lint",
+    "test": "node test/simple.js && npm run coverage-quiet",
     "coverage": "covert test/simple.js",
     "coverage-quiet": "covert --quiet test/simple.js",
-    "lint": "jscs *.js test/*.js"
+    "lint": "eslint ."
   }
 }
