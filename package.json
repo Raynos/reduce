@@ -52,6 +52,7 @@
     "pretest": "npm run lint",
     "tests-only": "node test/simple.js",
     "test": "npm run tests-only",
+    "posttest": "npx aud",
     "coverage": "covert test/simple.js",
     "lint": "eslint ."
   }
