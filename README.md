@@ -1,7 +1,5 @@
 # reduce [![build status][travis-svg]][travis-url]
 
-[![browser support][testling-png]][testling-url]
-
 ## Example
 
 Like `Array.prototype.reduce` but works on Object and accepts optional
@@ -36,7 +34,5 @@ reduce({
 ## MIT Licenced
 
   [travis-svg]: https://secure.travis-ci.org/Raynos/reduce.svg
-  [travis-url]: http://travis-ci.org/Raynos/reduce
-  [testling-png]: https://ci.testling.com/Raynos/reduce.png
-  [testling-url]: https://ci.testling.com/Raynos/reduce
+  [travis-url]: https://travis-ci.org/Raynos/reduce
 
