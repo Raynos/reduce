@@ -17,7 +17,7 @@
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
-    "object-keys": "^1.0.7"
+    "object-keys": "^1.1.0"
   },
   "devDependencies": {
     "@ljharb/eslint-config": "^13.1.1",
