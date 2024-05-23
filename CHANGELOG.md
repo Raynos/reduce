@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.3](https://github.com/Raynos/reduce/compare/v1.0.2...v1.0.3) - 2024-05-23
+
+### Commits
+
+- [Tests] migrate to GHA [`285b9c2`](https://github.com/Raynos/reduce/commit/285b9c296c8f321de616e15b5795a74c2ea5daad)
+- [meta] add autochangelog settings [`336d47c`](https://github.com/Raynos/reduce/commit/336d47cfc82334c44279398921863ee281fa212a)
+- [meta] use `auto-changelog` [`2c84bba`](https://github.com/Raynos/reduce/commit/2c84bbac2c5a31cfd0c0d140a3270d05acacfc5d)
+- [meta] clean up some package.json metadata [`63b6956`](https://github.com/Raynos/reduce/commit/63b69569bcb01dc90c271865457b57acd97b558d)
+- [Tests] use `nyc` for coverage [`e1c54bf`](https://github.com/Raynos/reduce/commit/e1c54bf3c6222bdd88182a76ba544deed5a2cddc)
+- [Dev Deps] update `@ljharb/eslint-config`, `eslint`, `tape` [`311270e`](https://github.com/Raynos/reduce/commit/311270e7e6c87bc7c9618daaa52a3f15e53c9c68)
+- [Dev Deps] list `aud` explicitly [`e5080e1`](https://github.com/Raynos/reduce/commit/e5080e1972133c332ecc31658607126cc47e80cf)
+- [meta] add `SECURITY.md` [`4bb7107`](https://github.com/Raynos/reduce/commit/4bb710717646303098dda4a15cac324b9bf3f367)
+- [meta] add missing `engines.node` [`fe78d29`](https://github.com/Raynos/reduce/commit/fe78d295eef18507f595d4562ca59d77164d338d)
+- [Deps] update `object-keys` [`52f927b`](https://github.com/Raynos/reduce/commit/52f927b906beb16f72b43cc3ccb2647a0ce62c98)
+
 ## [v1.0.2](https://github.com/Raynos/reduce/compare/v1.0.1...v1.0.2) - 2019-03-01
 
 ### Commits
