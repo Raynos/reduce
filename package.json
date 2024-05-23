@@ -10,6 +10,11 @@
   "contributors": [
     {
       "name": "Jake Verbaten"
+    },
+    {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
     }
   ],
   "bugs": {
@@ -27,28 +32,9 @@
     "nyc": "^10.3.2",
     "tape": "^5.7.5"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/Raynos/reduce/raw/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "iexplore/6.0..latest",
-      "firefox/3.0..6.0",
-      "firefox/15.0..latest",
-      "firefox/nightly",
-      "chrome/4.0..10.0",
-      "chrome/20.0..latest",
-      "chrome/canary",
-      "opera/10.0..latest",
-      "opera/next",
-      "safari/4.0..latest",
-      "ipad/6.0..latest",
-      "iphone/6.0..latest"
-    ]
+    "files": "test/*.js"
   },
   "scripts": {
     "pretest": "npm run lint",
