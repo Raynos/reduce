@@ -33,7 +33,7 @@ test('reduce calls each iterator', function (t) {
         t.equal(acc.key, expectedAccumulatorKey, 'accumulator key ' + acc.key + ' does not match ' + expectedAccumulatorKey);
 
         timesCalled += 1;
-        acc.key += value;
+        acc.key += value; // eslint-disable-line no-param-reassign
         return acc;
     };
 
